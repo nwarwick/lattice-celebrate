@@ -52,8 +52,8 @@ def post_messages
   workaversary_message = generate_message('workaversary', @workaversaries) unless @workaversaries.empty?
   client = Slack::Web::Client.new
   client.auth_test
-  client.chat_postMessage(channel: '#nicks-testing-channel', text: birthday_message, as_user: true) unless birthday_message.nil?
-  client.chat_postMessage(channel: '#nicks-testing-channel', text: workaversary_message, as_user: true) unless workaversary_message.nil?
+  client.chat_postMessage(channel: ENV['CHANNEL'], text: birthday_message, as_user: true) unless birthday_message.nil?
+  client.chat_postMessage(channel: ENV['CHANNEL'], text: workaversary_message, as_user: true) unless workaversary_message.nil?
 end
 
 def generate_message(anniversary, recipients)
