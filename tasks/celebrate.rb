@@ -32,12 +32,14 @@ def parse_employees
   today = Date.today
 
   @employees.each do |employee|
-    birth_date = Date.parse(employee['birthDate'])
-    start_date = Date.parse(employee['startDate'])
-    @birthdays << employee['name'] if (birth_date.day == today.day) && (birth_date.month == today.month)
-    if (start_date.day == today.day) && (start_date.month == today.month)
+    birth_date = Date.parse(employee['birthDate']) if employee['birthDate']
+    start_date = Date.parse(employee['startDate']) if employee['startDate']
+    @birthdays << employee['name'] if (birth_date&.day == today.day) && (birth_date&.month == today.month)
+    if (start_date&.day == today.day) && (start_date&.month == today.month)
       tenure = today.year - start_date.year
-      @workaversaries << "#{employee['name']} (#{tenure} #{tenure == 1 ? 'year' : 'years'})"
+      # If tenure < 0, it is their first day!
+      # Todo: Celebreate people's first days? Sean wanted to do this
+      @workaversaries << "#{employee['name']} (#{tenure} #{tenure == 1 ? 'year' : 'years'})" if tenure > 0
     end
   end
 end
