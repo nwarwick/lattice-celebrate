@@ -34,29 +34,18 @@ GEM
     ipaddr (1.2.2)
     method_source (1.0.0)
     multipart-post (2.1.1)
-    mustermann (1.1.1)
-      ruby2_keywords (~> 0.0.1)
     openssl (2.1.2)
       ipaddr
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    rack (2.2.3)
-    rack-protection (2.2.0)
-      rack
     ruby2_keywords (0.0.5)
-    sinatra (2.2.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.2.0)
-      tilt (~> 2.0)
     slack-ruby-client (1.0.0)
       faraday (>= 1.0)
       faraday_middleware
       gli
       hashie
       websocket-driver
-    tilt (2.0.10)
     uri (0.10.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -71,13 +60,12 @@ DEPENDENCIES
   dotenv
   openssl
   pry (~> 0.13.1)
-  sinatra
   slack-ruby-client
   uri
   whenever
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 2.7.6p219
 
 BUNDLED WITH
    2.1.4
