@@ -28,6 +28,11 @@ def get_employees(cursor = nil)
   get_employees(response['endingCursor']) if response['hasMore']
 end
 
+def remove_ignored_users
+  ignored_users = ENV['IGNORED_USERS']&.split(',').map(&:strip)
+  @employees.select! { |employee| !ignored_users.include?(employee['email']) }
+end
+
 def parse_employees
   today = Date.today
 
@@ -71,5 +76,6 @@ end
 
 get_employees
 @employees = @employees.flatten
+remove_ignored_users if ENV['IGNORED_USERS']
 parse_employees
 post_messages if !@birthdays.empty? || !@workaversaries.empty?
