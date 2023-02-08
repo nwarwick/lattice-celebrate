@@ -29,7 +29,7 @@ def get_employees(cursor = nil)
 end
 
 def remove_ignored_users
-  ignored_users = ENV['IGNORED_USERS']&.split(',').map(&:strip)
+  ignored_users = ENV['IGNORED_USERS'].split(',').map(&:strip)
   @employees.select! { |employee| !ignored_users.include?(employee['email']) }
 end
 
