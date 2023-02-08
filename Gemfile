@@ -9,4 +9,5 @@ gem 'whenever'
 # Heroku-specific version of wickedpdf, in order to reduce slug size
 group :production, :test do
 	gem 'pry', '~> 0.13.1'
+	gem 'standard'
 end
