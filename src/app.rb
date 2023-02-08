@@ -1,3 +1,3 @@
-require 'sinatra'
+require "sinatra"
 
-puts 'working'
+puts "working"
