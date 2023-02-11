@@ -6,8 +6,8 @@ gem 'slack-ruby-client'
 gem 'uri'
 gem 'whenever'
 
-# Heroku-specific version of wickedpdf, in order to reduce slug size
 group :production, :test do
   gem 'pry', '~> 0.13.1'
+  gem 'solargraph', '~> 0.48.0'
   gem 'standard'
 end
