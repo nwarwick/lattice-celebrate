@@ -3,7 +3,6 @@ require "uri"
 require "net/http"
 require "openssl"
 require "dotenv"
-require "pry"
 Dotenv.load
 
 @employees = []
