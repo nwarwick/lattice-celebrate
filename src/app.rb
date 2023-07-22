@@ -1,3 +1,0 @@
-require "sinatra"
-
-puts "working"

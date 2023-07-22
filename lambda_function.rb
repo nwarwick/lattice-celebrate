@@ -1,13 +1,11 @@
-require "slack-ruby-client"
+require "bundler/setup"
+ENV['GEM_HOME'] = "/tmp/vendor/bundle/ruby/2.7.0"
+ENV['GEM_PATH'] = "/tmp/vendor/bundle/ruby/2.7.0"
+require "slack"
 require "uri"
 require "net/http"
-require "openssl"
 require "dotenv"
 Dotenv.load
-
-@employees = []
-@birthdays = []
-@workaversaries = []
 
 def get_employees(cursor = nil)
   url = "https://api.latticehq.com/v1/users?limit=100"
@@ -20,10 +18,8 @@ def get_employees(cursor = nil)
   request = Net::HTTP::Get.new(url)
   request["Accept"] = "application/json"
   request["Authorization"] = ENV["LATTICE_API_KEY"]
-
   response = JSON.parse(http.request(request).read_body)
   @employees << response["data"]
-
   get_employees(response["endingCursor"]) if response["hasMore"]
 end
 
@@ -42,7 +38,6 @@ def parse_employees
     if (start_date&.day == today.day) && (start_date&.month == today.month)
       tenure = today.year - start_date.year
       # If tenure < 0, it is their first day!
-      # Todo: Celebreate people's first days? Sean wanted to do this
       @workaversaries << "#{employee["name"]} (#{tenure} #{(tenure == 1) ? "year" : "years"})" if tenure > 0
     end
   end
@@ -73,8 +68,13 @@ def generate_message(anniversary, recipients)
   end
 end
 
-get_employees
-@employees = @employees.flatten
-remove_ignored_users if ENV["IGNORED_USERS"]
-parse_employees
-post_messages if !@birthdays.empty? || !@workaversaries.empty?
+def lambda_handler(event: nil, context: nil)
+  @employees = []
+  @birthdays = []
+  @workaversaries = []
+  get_employees
+  @employees = @employees.flatten
+  remove_ignored_users if ENV["IGNORED_USERS"]
+  parse_employees
+  post_messages if !@birthdays.empty? || !@workaversaries.empty?
+end
