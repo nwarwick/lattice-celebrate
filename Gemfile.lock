@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    dotenv (2.8.1)
     faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -28,7 +27,6 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
-  dotenv
   slack-ruby-client
   uri
 

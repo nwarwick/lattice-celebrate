@@ -4,8 +4,6 @@ ENV['GEM_PATH'] = "/tmp/vendor/bundle/ruby/2.7.0"
 require "slack"
 require "uri"
 require "net/http"
-require "dotenv"
-Dotenv.load
 
 def get_employees(cursor = nil)
   url = "https://api.latticehq.com/v1/users?limit=100"
