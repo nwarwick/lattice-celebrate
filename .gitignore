@@ -1,5 +1,4 @@
 .env
 .tool-versions
 vendor/
-*.zip
 .DS_Store
