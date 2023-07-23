@@ -1,6 +1,6 @@
 require "bundler/setup"
-ENV['GEM_HOME'] = "/tmp/vendor/bundle/ruby/2.7.0"
-ENV['GEM_PATH'] = "/tmp/vendor/bundle/ruby/2.7.0"
+ENV["GEM_HOME"] = "/tmp/vendor/bundle/ruby/2.7.0"
+ENV["GEM_PATH"] = "/tmp/vendor/bundle/ruby/2.7.0"
 require "slack"
 require "uri"
 require "net/http"
