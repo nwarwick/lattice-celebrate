@@ -12,6 +12,7 @@ GEM
     faraday-net_http (3.0.2)
     gli (2.21.0)
     hashie (5.0.0)
+    minitest (5.19.0)
     multipart-post (2.3.0)
     ruby2_keywords (0.0.5)
     slack-ruby-client (2.1.0)
@@ -28,6 +29,7 @@ PLATFORMS
   arm64-darwin-23
 
 DEPENDENCIES
+  minitest (~> 5.19)
   slack-ruby-client
   uri
 
