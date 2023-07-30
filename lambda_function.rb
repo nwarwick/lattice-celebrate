@@ -57,12 +57,14 @@ end
 
 def generate_message(anniversary, recipients)
   recipients_count = recipients.length
-  if recipients_count == 1
-    "Happy #{anniversary} #{recipients[0]}! 🎉"
-  elsif recipients_count == 2
-    "Happy #{anniversary} to #{recipients[0]} and #{recipients[1]}! 🎉"
+  message = "Happy #{anniversary} "
+  case recipients_count
+  when 1
+    message + "#{recipients[0]}! 🎉"
+  when 2
+    message + "to #{recipients[0]} and #{recipients[1]}! 🎉"
   else
-    "Happy #{anniversary} to #{recipients[0..recipients_count - 2].join(", ")} and #{recipients[recipients_count - 1]}! 🎉"
+    message + "to #{recipients[0...-1].join(', ')} and #{recipients[-1]}! 🎉"
   end
 end
 
