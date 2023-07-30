@@ -64,7 +64,7 @@ def generate_message(anniversary, recipients)
   when 2
     message + "to #{recipients[0]} and #{recipients[1]}! 🎉"
   else
-    message + "to #{recipients[0...-1].join(', ')} and #{recipients[-1]}! 🎉"
+    message + "to #{recipients[0...-1].join(", ")} and #{recipients[-1]}! 🎉"
   end
 end
 
