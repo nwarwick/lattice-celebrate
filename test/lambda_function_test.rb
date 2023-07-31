@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require_relative "../lambda_function"
 
-class TestLambdaFunction < Minitest::Test
+class LambdaFunctionTest < Minitest::Test
   def test_generate_message
     team = ["Nicholas", "Kiril", "Johnny", "Lucas", "Martin L", "Martin G", "Levi", "Nachiket"]
     assert_equal "Happy workaversary Nicholas! \u{1F389}", generate_message("workaversary", ["Nicholas"])
