@@ -21,12 +21,13 @@ GEM
       faraday-multipart
       gli
       hashie
-    uri (0.12.2)
+    uri (0.12.5)
 
 PLATFORMS
   aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   minitest (~> 5.19)
