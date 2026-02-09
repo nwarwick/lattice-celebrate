@@ -1,20 +1,25 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    faraday (2.7.10)
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
+    faraday (2.14.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
     faraday-mashify (0.1.1)
       faraday (~> 2.0)
       hashie
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
-    faraday-net_http (3.0.2)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     gli (2.21.1)
     hashie (5.0.0)
+    json (2.18.1)
+    logger (1.7.0)
     minitest (5.19.0)
     multipart-post (2.3.0)
-    ruby2_keywords (0.0.5)
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     slack-ruby-client (2.1.0)
       faraday (>= 2.0)
       faraday-mashify
@@ -27,6 +32,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   minitest (~> 5.19)
